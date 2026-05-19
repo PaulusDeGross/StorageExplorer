@@ -4,6 +4,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="SELib.Test/SELib.Test.csproj" />
+  <Project Path="SELib/SELib.csproj" />
   <Project Path="StorageExplorer/StorageExplorer.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />
