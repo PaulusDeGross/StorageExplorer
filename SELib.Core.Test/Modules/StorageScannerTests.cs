@@ -1,6 +1,6 @@
-namespace SELib.Test
+namespace SELib.Core.Test.Modules
 {
-    public class UnitTest1
+    public class StorageScannerTests
     {
         [Fact]
         public void Test1()
