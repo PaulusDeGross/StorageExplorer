@@ -4,10 +4,18 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="StorageExplorer/StorageExplorer.csproj">
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-    <Deploy />
-  </Project>
+  <Folder Name="/Library/">
+    <Project Path="SELib.Core/SELib.Core.csproj" Id="876e55be-7aef-4e64-9a64-2aaf33f10456" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="SELib.Core.Test/SELib.Core.Test.csproj" Id="42c47537-6d5c-45ae-9dc2-d765d74de419" />
+  </Folder>
+  <Folder Name="/UI/">
+    <Project Path="SEUi/SEUi.csproj" Id="ae2e0f9c-e0b8-4f6e-8675-fd29ecc12cbf">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+      <Deploy />
+    </Project>
+  </Folder>
 </Solution>

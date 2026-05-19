@@ -1,9 +1,9 @@
 {
   "profiles": {
-    "StorageExplorer (Package)": {
+    "SEUi (Package)": {
       "commandName": "MsixPackage"
     },
-    "StorageExplorer (Unpackaged)": {
+    "SEUi (Unpackaged)": {
       "commandName": "Project"
     }
   }
