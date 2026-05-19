@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "StorageExplorer (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "StorageExplorer (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
