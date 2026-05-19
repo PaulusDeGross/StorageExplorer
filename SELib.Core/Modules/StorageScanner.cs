@@ -21,7 +21,7 @@ namespace SELib.Core.Modules
             IEnumerable<FileInfo> files;
             try
             {
-                files = dirInfo.EnumerateFiles("*.*", opts);
+                files = dirInfo.EnumerateFiles("*", opts);
             }
             catch (Exception)
             {
