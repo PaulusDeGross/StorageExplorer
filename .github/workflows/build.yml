@@ -1,0 +1,43 @@
+name: CI/CD Storage Explorer
+
+on:
+    push:
+        branches: ["main", "master"]
+    pull_request:
+        branches: ["main", "master"]
+
+jobs:
+    build-and-test:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v4
+              with:
+                  dotnet-version: "8.0.x"
+
+            - name: Restore Dependencies
+              run: dotnet restore
+
+            - name: Run xUnit Tests
+              run: dotnet test StorageExplorer.Core.Tests/StorageExplorer.Core.Tests.csproj --configuration Release --no-restore
+
+            - name: Publish WinUI 3 App (Single .exe)
+              run: >
+                  dotnet publish StorageExplorer.UI/StorageExplorer.UI.csproj 
+                  -c Release 
+                  -r win-x64 
+                  --self-contained true 
+                  -p:PublishSingleFile=true 
+                  -p:WindowsPackageType=None 
+                  -p:WindowsAppSDKSelfContained=true 
+                  -p:IncludeNativeLibrariesForSelfExtract=true
+                  -o ./publish_output
+
+            - name: Upload Single .exe Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: StorageExplorer-App
+                  path: ./publish_output/*.exe
